@@ -6,7 +6,12 @@ export default {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                playwrite: ['Playwrite GB S', 'cursive'],
+                NotoSerif: ['Arimo', 'sans-serif'],
+            }
+        },
     },
     plugins: [],
 }

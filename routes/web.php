@@ -5,9 +5,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentsController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 // Route::get('/test', function () {
 //     return view('test');
 // });
@@ -43,3 +43,4 @@ Route::get('/', function () {
 
 
 Route::get('/students', [StudentsController::class, 'index']);
+Route::get('/',[HomeController::class,'index']);

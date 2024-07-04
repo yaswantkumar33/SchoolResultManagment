@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>Index Display Route</h1>
+    
 </body>
 
 </html>
