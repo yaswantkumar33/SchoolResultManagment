@@ -9,7 +9,7 @@ export default {
         extend: {
             fontFamily: {
                 playwrite: ['Playwrite GB S', 'cursive'],
-                NotoSerif: ['Arimo', 'sans-serif'],
+                Arimo: ['Arimo', 'sans-serif'],
             }
         },
     },
