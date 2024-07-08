@@ -4,7 +4,8 @@
 @section('title', 'Home')
 
 @section('content')
-    <div class="Navbar m-4">
-        @include('navbar')
-    </div>
+    @include('navbar')
+    <section class="p-6">
+        @include('hero')
+    </section>
 @endsection
