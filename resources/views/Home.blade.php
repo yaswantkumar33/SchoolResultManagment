@@ -5,7 +5,10 @@
 
 @section('content')
     @include('navbar')
-    <section class="p-6">
+    <section class="p-6 mb-10">
         @include('hero')
+    </section>
+    <section class="p-6">
+        @include('Feauture')
     </section>
 @endsection

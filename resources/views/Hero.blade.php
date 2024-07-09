@@ -5,10 +5,11 @@ $authh = true;
 <div class="  w-full flex ">
     <div class="w-1/2 flex  items-Start px-5 pt-48  flex-col ">
         <h1 class="text-7xl font-semibold " data-aos="fade-right" data-aos-duration="1000" data-aos-delay="0">
-            School <span>Result</span>
-            <br> <span class=" font-playwrite text-6xl text-purple-500">Managment</span> <br>System
+            School <span class="font-playwrite text-6xl text-purple-500">Result</span>
+            <br> <span class="">Managment</span> System
         </h1>
-        <p class=" font-Arimo pt-4 max-w-4xl text-2xl" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
+        <p class=" font-Arimo pt-4 max-w-4xl text-2xl" data-aos="fade-right" data-aos-duration="1000"
+            data-aos-delay="500">
             "Welcome to the School Result Management System. Students can securely log in to view their academic
             results, while teachers have the tools to manage student records, including adding, editing, and removing
             student details and results. Our system ensures efficient and accurate management of school performance
@@ -30,8 +31,6 @@ $authh = true;
         <div class=" object-contain pt-12">
             <img src="../images/SchlHomeimg1.png" alt="" height="500px" width="663px">
         </div>
-
-
     </div>
 
 </div>
