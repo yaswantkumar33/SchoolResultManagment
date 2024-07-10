@@ -1,4 +1,4 @@
-<div class=" mt-20">
+{{-- <div class=" mt-20">
     <h1 class="text-4xl  font-semibold text-center mt-5">Feautures</h1>
     <div class="mt-5 flex items-center flex-col ">
         <div class="flex w-full">
@@ -14,4 +14,4 @@
         <div>feature 2</div>
         <div>feature 3 </div>
     </div>
-</div>
+</div> --}}

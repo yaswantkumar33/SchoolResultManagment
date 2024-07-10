@@ -43,4 +43,7 @@ use App\Http\Controllers\StudentsController;
 
 
 Route::get('/students', [StudentsController::class, 'index']);
-Route::get('/',[HomeController::class,'index']);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/dashboard', [HomeController::class, 'dashboard']);
+Route::get('/login', [HomeController::class, 'login']);
+Route::get('/register', [HomeController::class, 'register'])->name('student.register');

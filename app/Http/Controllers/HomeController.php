@@ -11,4 +11,18 @@ class HomeController extends Controller
     {
         return view('Home');
     }
+    public function dashboard()
+    {
+        return view("dashboard");
+    }
+    public function login()
+    {
+        $register = false;
+        return view('register', ['register' => $register]);
+    }
+    public function register()
+    {
+        $register = true;
+        return view('register', ['register' => $register]);
+    }
 }
