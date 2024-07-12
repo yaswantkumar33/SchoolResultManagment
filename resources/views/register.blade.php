@@ -1,3 +1,4 @@
+<!-- resources/views/auth/login.blade.php -->
 @extends('layouts.app')
 @section('title', 'Login')
 
@@ -8,7 +9,8 @@
             <div class=" p-5 m-5 bg-white shadow-2xl">
                 <h4 class="text-center text-2xl font-Arimo text-slate-600 font-semibold py-5">User <span
                         class=" font-playwrite text-xl text-purple-600">Register</span> </h4>
-                <form class="w-full max-w-sm">
+                <form class="w-full max-w-sm" method="POST" action="{{ route('student.store') }}">
+                    @csrf
                     <div class="md:flex md:items-center mb-6">
                         <div class="md:w-1/3">
                             <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
@@ -19,7 +21,7 @@
                         <div class="md:w-2/3">
                             <input
                                 class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                id="inline-full-name" type="email" value="" placeholder="Enter Your Email">
+                                type="email" name="email" value="" placeholder="Enter Your Email">
                         </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
@@ -32,7 +34,7 @@
                         <div class="md:w-2/3">
                             <input
                                 class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                id="inline-password" type="password" placeholder="Enter your password">
+                                type="password" name="password" placeholder="Enter your password">
                         </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
@@ -45,7 +47,7 @@
                         <div class="md:w-2/3">
                             <input
                                 class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                id="inline-password" type="password" placeholder="Enter your password">
+                                type="password" name="confirmpassword" placeholder="Enter your password">
                         </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
@@ -58,7 +60,7 @@
                         <div class="md:w-2/3">
                             <input
                                 class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                id="inline-password" type="date">
+                                type="date" name="DOB">
                         </div>
                     </div>
 
@@ -67,11 +69,13 @@
                         <div class="md:w-2/3">
                             <button
                                 class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                                type="button">
+                                type="submit" id="rsubmit">
                                 Submit
                             </button>
                         </div>
                     </div>
+                    <p class="text-center font-semibold">Already Have Account ! <a href="/login"
+                            class=" underline text-purple-600 font-playwrite ">LogIn</a></p>
                 </form>
             </div>
         </section>
@@ -80,7 +84,7 @@
             <div class=" p-5 m-5 bg-white shadow-2xl">
                 <h4 class="text-center text-2xl font-Arimo text-slate-600 font-semibold py-5">User <span
                         class=" font-playwrite text-xl text-purple-600">Login</span> </h4>
-                <form class="w-full max-w-sm">
+                <form class="w-full max-w-sm" method="POST">
                     <div class="md:flex md:items-center mb-6">
                         <div class="md:w-1/3">
                             <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
@@ -91,7 +95,7 @@
                         <div class="md:w-2/3">
                             <input
                                 class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                id="inline-full-name" type="email" value="" placeholder="Enter Your Email">
+                                type="email" value="" name="email" placeholder="Enter Your Email">
                         </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
@@ -104,19 +108,19 @@
                         <div class="md:w-2/3">
                             <input
                                 class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                id="inline-password" type="password" placeholder="Enter your password">
+                                type="password" name="password" placeholder="Enter your password">
                         </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
                         <div class="md:w-1/3"></div>
                         <label class="md:w-2/3 block text-gray-500 font-bold">
-                            <input class="mr-2 leading-tight" type="checkbox">
+                            <input class="mr-2 leading-tight" type="checkbox" name="student">
                             <span class="text-sm">
                                 Student
                             </span>
                         </label>
                         <label class="md:w-2/3 block text-gray-500 font-bold">
-                            <input class="mr-2 leading-tight" type="checkbox">
+                            <input class="mr-2 leading-tight" type="checkbox" name="teacher">
                             <span class="text-sm">
                                 Teacher
                             </span>
@@ -132,8 +136,14 @@
                             </button>
                         </div>
                     </div>
+                    <p class="text-center font-semibold">Don't have a account ! <a href="/register"
+                            class=" underline text-purple-600 font-playwrite ">Create Account</a></p>
                 </form>
             </div>
         </section>
     @endif
+@endsection
+
+@section('cusjs')
+    <script src="{{ asset('js/homecontroller.js') }}"></script>
 @endsection

@@ -23,6 +23,7 @@
     </div>
 
     @include('layouts.Footer')
+    @yield('cusjs')
 </body>
 
 </html>

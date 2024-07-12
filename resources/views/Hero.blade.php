@@ -29,7 +29,7 @@ $authh = true;
 
     </div>
     <div class="w-1/2  flex  justify-center  ">
-        <div class=" object-contain pt-12">
+        <div class=" object-contain pt-12" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="1500">
             <img src="../images/SchlHomeimg1.png" alt="" height="500px" width="663px">
         </div>
     </div>

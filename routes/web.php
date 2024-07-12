@@ -47,3 +47,4 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [HomeController::class, 'dashboard']);
 Route::get('/login', [HomeController::class, 'login']);
 Route::get('/register', [HomeController::class, 'register'])->name('student.register');
+Route::post('/store', [HomeController::class, 'storeStudent'])->name('student.store');
