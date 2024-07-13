@@ -19,7 +19,7 @@
                 @if (strpos(url()->current(), 'register') || strpos(url()->current(), 'login'))
                 @else
                     <li><a href="/login">Login</a></li>
-                    {{-- <li><a href="/Logout">Logout</a></li> --}}
+                    <li><a href="/Logout">Logout</a></li>
                     <li><a href="{{ route('student.register') }}">Register</a></li>
                 @endif
             </ul>

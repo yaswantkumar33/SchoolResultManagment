@@ -33,4 +33,22 @@ class HomeController extends Controller
         // user::
 
     }
+    public function axiostest(Request $request)
+    {
+
+
+        return response()->json(['message' => $request->username]);
+    }
+    public function userlogin(Request $request)
+    {
+        $request->validate(['email' => 'required', 'password' => 'required',]);
+
+        $creditianls = $request->only('email','password');
+
+
+
+
+
+
+    }
 }
