@@ -42,11 +42,12 @@ use App\Http\Controllers\StudentsController;
 // students route
 
 
-Route::get('/students', [StudentsController::class, 'index']);
-Route::get('/', [HomeController::class, 'index']);
+// Route::get('/students', [StudentsController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('Home');
 Route::get('/dashboard', [HomeController::class, 'dashboard']);
-Route::get('/login', [HomeController::class, 'login']);
+Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::get('/register', [HomeController::class, 'register'])->name('student.register');
 Route::post('/store', [HomeController::class, 'storeStudent'])->name('student.store');
 Route::post('/axiostest', [HomeController::class, 'axiostest']);
 Route::post('/userlogin', [HomeController::class, 'userlogin']);
+Route::post('/logout', [HomeController::class, 'logout']);
