@@ -16,12 +16,16 @@
             <ul
                 class=" text-xl flex justify-between gap-8 items-center font-Arimo cursor-pointer z-10 max-sm:hidden font-semibold ">
                 <li><a href="/dashboard">DashBoard</a></li>
-                <li>{{ auth()->user()->useremail }}</li>
+                <li>{{ auth()->user() ? auth()->user()->useremail : '' }}</li>
                 @if (strpos(url()->current(), 'register') || strpos(url()->current(), 'login'))
                 @else
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/logout">Logout</a></li>
-                    <li><a href="{{ route('student.register') }}">Register</a></li>
+                    @if (auth()->user())
+                        <li><a href="/logout">Logout</a></li>
+                    @else
+                        <li><a href="/login">Login</a></li>
+
+                        <li><a href="{{ route('student.register') }}">Register</a></li>
+                    @endif
                 @endif
             </ul>
         </div>

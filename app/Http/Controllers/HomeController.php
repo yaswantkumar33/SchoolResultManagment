@@ -41,15 +41,16 @@ class HomeController extends Controller
 
     }
 
-    public function axiostest(Request $request)
+    public function registeruser(Request $request)
     {
         // return response()->json(['username' => $request->username, 'email' => $request->email, 'password' => $request->password, 'confirmpassword' => $request->confirmpassword, 'dob' => $request->dob]);
         $data['username'] = $request->username;
         $data['useremail'] = $request->email;
         $data['password'] = Hash::make($request->password);
         $data['dob'] = $request->dob;
+        $date['role'] = $request->role;
         $user = User::create($data);
-        return response()->json(['message' => 'User created successfully']);
+        return redirect()->route('login');
     }
 
     public function userlogin(Request $request)
@@ -57,12 +58,17 @@ class HomeController extends Controller
         $request->validate([
             'useremail' => 'required|email',
             'password' => 'required',
+            'role' => 'required',
         ]);
 
-        $credentials = $request->only('useremail', 'password');
+        $credentials = $request->only('useremail', 'password', 'role');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended(route('Home'));
+            if ($request->role == "student") {
+                return redirect()->intended(route('Home'));
+            } else {
+                return redirect()->intended(route("teacher.dashboard"));
+            }
         }
 
         return redirect()->route('login')->with('error', 'Invalid credentials. Please try again.');
@@ -74,5 +80,9 @@ class HomeController extends Controller
         Session::flush();
         Auth::logout();
         return redirect()->route('login');
+    }
+    public function teacher()
+    {
+        return view('teacherDashboard');
     }
 }

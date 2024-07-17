@@ -130,13 +130,13 @@
                     <div class="md:flex md:items-center mb-6">
                         <div class="md:w-1/3"></div>
                         <label class="md:w-2/3 block text-gray-500 font-bold">
-                            <input class="mr-2 leading-tight" type="checkbox" name="student">
+                            <input class="mr-2 leading-tight" type="radio" name="role" value="student">
                             <span class="text-sm">
                                 Student
                             </span>
                         </label>
                         <label class="md:w-2/3 block text-gray-500 font-bold">
-                            <input class="mr-2 leading-tight" type="checkbox" name="teacher">
+                            <input class="mr-2 leading-tight" type="radio" name="role" value="teacher">
                             <span class="text-sm">
                                 Teacher
                             </span>

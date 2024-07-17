@@ -13,11 +13,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 password: document.getElementById('rpassword').value,
                 confirmpassword: document.getElementById('rconfirmpassword').value,
                 dob: document.getElementById('DOB').value,
+                role: "student",
             };
             console.log("sdhjklfgodsuygfdjhfvdjkgvg")
 
             // Send POST request using Axios
-            axios.post('http://127.0.0.1:8000/axiostest', formData)
+            axios.post('http://127.0.0.1:8000/registeruser', formData)
                 .then(function (response) {
                     console.log(response.data);
                     // Handle success response

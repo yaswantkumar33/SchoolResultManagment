@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->integer('phonenumber')->nullable();
             $table->boolean('approved')->default(false);
             $table->date('dob');
+            $table->string('role')->default("student");
             $table->string('class')->nullable();
 
         });
