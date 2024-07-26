@@ -5,9 +5,9 @@
 @section('content')
     @include('navbar')
     <section class="flex justify-center items-center mt-10 ">
-        <div class=" p-5 m-5 bg-white shadow-2xl">
+        <div class=" p-5 m-5 bg-white shadow-2xl rounded-lg">
             <h4 class="text-center text-2xl font-Arimo text-slate-600 font-semibold py-5">User <span
-                    class=" font-playwrite text-xl text-purple-600">Login</span> </h4>
+                    class=" font-playwrite text-xl font-semibold text-purple-600">Login</span> </h4>
             <p class="text-xl text-red-500 text-center">
                 @if (session('error'))
                     <div class="alert alert-danger">

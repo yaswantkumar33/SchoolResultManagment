@@ -6,7 +6,7 @@ $authh = true;
     <div class="w-1/2 flex  items-Start px-5 pt-48  flex-col ">
         <h1 class="text-7xl font-semibold " data-aos="fade-right" data-aos-duration="1000" data-aos-delay="0">
             School <span class="font-playwrite text-6xl text-purple-500">Result</span>
-            <br> <span class="">Managment</span> System
+            <br> <span class="font-semibold text-7xl">Managment</span> System
         </h1>
         <p class=" font-Arimo pt-4 max-w-4xl text-2xl" data-aos="fade-right" data-aos-duration="1000"
             data-aos-delay="500">

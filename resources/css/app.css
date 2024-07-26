@@ -22,3 +22,203 @@
 .padding-y {
     @apply sm:py-24 py-12;
 }
+
+/* result tABLE CSS  */
+
+* {
+    box-sizing: border-box;
+    font: 300 1.125rem/1.5 system-ui;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: 1rem;
+    overflow: hidden;
+    width: min(48rem, 100%);
+    filter: drop-shadow(0 5px 15px #c1c1c1);
+    margin-inline: auto;
+}
+
+thead {
+    background: royalblue;
+    color: white;
+    border-radius: 1rem;
+
+    th {
+        font-weight: bold;
+        padding-block: 0.5rem;
+    }
+
+    @media (width <= 32rem) {
+        display: none;
+    }
+}
+
+tr {
+    position: relative;
+    filter: drop-shadow(4px 4px 6px silver);
+    z-index: var(--zi);
+
+    &:not(:first-child)::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: -2rem;
+        width: 2rem;
+        height: 2rem;
+        background-color: var(--row-background);
+        transition: background 200ms;
+    }
+
+    @media (width <= 32rem) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+tr:nth-child(4n + 1) {
+    --row-background: honeydew;
+}
+
+tr:nth-child(4n + 2) {
+    --row-background: lavenderblush;
+}
+
+tr:nth-child(4n + 3) {
+    --row-background: aliceblue;
+}
+
+tr:nth-child(4n) {
+    --row-background: lightcyan;
+}
+
+tr:hover {
+    --row-background: papayawhip;
+}
+
+td {
+    padding: 2rem 0.5rem;
+    background-color: var(--row-background);
+    transition: background 200ms;
+
+    &:last-child {
+        clip-path: polygon(
+            0 0,
+            100% 0,
+            100% calc(100% - 2rem),
+            calc(100% - 2rem) 100%,
+            0 101%
+        );
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            content: "";
+            border: 1rem solid
+                color-mix(in srgb, var(--row-background, #c0c0c0), black 10%);
+        }
+    }
+
+    @media (width < 32rem) {
+        padding: 0.25rem 0.5rem;
+
+        &::before {
+            content: attr(data-title) ": ";
+            font-weight: bold;
+        }
+    }
+}
+footer {
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+    height: 300px;
+}
+footer div {
+    background-color: var(--col-deepblue);
+    margin: -5px 0px 0px 0px;
+    padding: 0px;
+    color: #fff;
+    text-align: center;
+}
+svg {
+    width: 100%;
+    overflow: visible;
+}
+
+.wave {
+    animation: wave 3s linear;
+    animation-iteration-count: infinite;
+    fill: #a855f7;
+}
+.drop {
+    fill: var(--col-deepblue);
+    xfill: #99000055;
+    animation: drop 3.2s linear infinite normal;
+    stroke: var(--col-deepblue);
+    stroke-width: 0.5;
+    transform: translateY(25px);
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+}
+.drop1 {
+}
+.drop2 {
+    animation-delay: 3s;
+    animation-duration: 3s;
+}
+.drop3 {
+    animation-delay: -2s;
+    animation-duration: 3.4s;
+}
+.drop4 {
+    animation-delay: 1.7s;
+}
+.drop5 {
+    animation-delay: 2.7s;
+    animation-duration: 3.1s;
+}
+.drop6 {
+    animation-delay: -2.1s;
+    animation-duration: 3.2s;
+}
+.gooeff {
+    filter: url(#goo);
+}
+#wave2 {
+    animation-duration: 5s;
+    animation-direction: reverse;
+    opacity: 0.6;
+}
+#wave3 {
+    animation-duration: 7s;
+    opacity: 0.3;
+}
+@keyframes drop {
+    0% {
+        transform: translateY(25px);
+    }
+    30% {
+        transform: translateY(-10px) scale(0.1);
+    }
+    30.001% {
+        transform: translateY(25px) scale(1);
+    }
+    70% {
+        transform: translateY(25px);
+    }
+    100% {
+        transform: translateY(-10px) scale(0.1);
+    }
+}
+@keyframes wave {
+    to {
+        transform: translateX(-100%);
+    }
+}

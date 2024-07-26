@@ -20,10 +20,10 @@ class HomeController extends Controller
     public function dashboard()
     {
         $records = Result::where('user_id', auth()->user()->id)->get();
+        // dd($records[0]->results);
+        $decodedcode = json_decode($records[0]->results, true);
+        // dd($decodedcode);
         // dd($record);
-        foreach ($records as $record) {
-            dd($record->results);
-        }
 
         // Check if the record exists
         // if ($record) {
@@ -35,6 +35,7 @@ class HomeController extends Controller
         // } else {
         //     return redirect()->route("login");
         // }
+        return view('dashboard', compact('decodedcode'));
     }
 
     public function login()
@@ -80,12 +81,12 @@ class HomeController extends Controller
         ]);
 
         $credentials = $request->only('useremail', 'password', 'role');
-
         if (Auth::attempt($credentials)) {
+
             if ($request->role) {
                 if ($request->role == "student") {
                     return redirect()->intended(route('Home'));
-                } else {
+                } else if ($request->role == "teacher") {
                     return redirect()->intended(route("teacher.dashboard"));
                 }
             } else {
