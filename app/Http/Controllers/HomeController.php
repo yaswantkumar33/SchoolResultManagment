@@ -8,6 +8,7 @@ use App\Models\user; // Note: User should typically be capitalized
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Models\Result;
 
 class HomeController extends Controller
 {
@@ -18,13 +19,27 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        return view("dashboard");
+        $records = Result::where('user_id', auth()->user()->id)->get();
+        // dd($record);
+        foreach ($records as $record) {
+            dd($record->results);
+        }
+
+        // Check if the record exists
+        // if ($record) {
+        //     // The 'results' field is automatically cast to an array
+        //     $decodedResults = $record->results;
+
+        //     // Pass the decoded results to a view or handle it as needed
+        //     return view('results.show', ['results' => $decodedResults]);
+        // } else {
+        //     return redirect()->route("login");
+        // }
     }
 
     public function login()
     {
-        $register = false;
-        return view('register', ['register' => $register]);
+        return view('login');
     }
 
     public function register()
@@ -43,14 +58,17 @@ class HomeController extends Controller
 
     public function registeruser(Request $request)
     {
+        // Uncomment for debugging
         // return response()->json(['username' => $request->username, 'email' => $request->email, 'password' => $request->password, 'confirmpassword' => $request->confirmpassword, 'dob' => $request->dob]);
+
         $data['username'] = $request->username;
         $data['useremail'] = $request->email;
         $data['password'] = Hash::make($request->password);
         $data['dob'] = $request->dob;
-        $date['role'] = $request->role;
-        $user = User::create($data);
-        return redirect()->route('login');
+        $data['role'] = $request->role; // Ensure 'role' is correctly defined in your database schema
+        User::create($data);
+
+        return response()->json(['success' => true, 'message' => 'Registration successful']);
     }
 
     public function userlogin(Request $request)
@@ -64,10 +82,14 @@ class HomeController extends Controller
         $credentials = $request->only('useremail', 'password', 'role');
 
         if (Auth::attempt($credentials)) {
-            if ($request->role == "student") {
-                return redirect()->intended(route('Home'));
+            if ($request->role) {
+                if ($request->role == "student") {
+                    return redirect()->intended(route('Home'));
+                } else {
+                    return redirect()->intended(route("teacher.dashboard"));
+                }
             } else {
-                return redirect()->intended(route("teacher.dashboard"));
+                return redirect()->route('login')->with('error', 'Invalid credentials. Please try again.');
             }
         }
 
@@ -84,5 +106,23 @@ class HomeController extends Controller
     public function teacher()
     {
         return view('teacherDashboard');
+    }
+    public function resultcreate($id)
+    {
+        // Create an associative array representing the JSON data
+        $resultsData = [
+            'math' => 95,
+            'science' => 88,
+            'history' => 76,
+            'english' => 92,
+        ];
+
+        // Insert a new result
+        Result::create([
+            'user_id' => $id, // Assuming you have a user with ID 1
+            'results' => $resultsData,
+            'semester' => 1, // Assuming it's the first semester
+        ]);
+
     }
 }

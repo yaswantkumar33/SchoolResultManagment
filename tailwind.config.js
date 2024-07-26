@@ -8,10 +8,10 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                playwrite: ['Playwrite GB S', 'cursive'],
-                Arimo: ['Arimo', 'sans-serif'],
-            }
+                playwrite: ["Cabin", " sans-serif"],
+                Arimo: ["Arimo", "sans-serif"],
+            },
         },
     },
     plugins: [],
-}
+};
