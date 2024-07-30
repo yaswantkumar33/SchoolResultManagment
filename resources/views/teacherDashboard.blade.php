@@ -6,9 +6,9 @@
 @section('content')
     <section class="  w-full  flex  flex-col">
         <nav class="w-full flex items-start justify-between px-4 py-3 bg-purple-500">
-            <h1 class="text-2xl font-semibold text-white">School <span
-                    class="text-black font-playwrite text-2xl font-semibold">Result</span>
-                Manaagment System! </h1>
+            <h1 class="text-2xl font-semibold text-white"><a href="/" class="text-2xl font-semibold text-white">School
+                    <span class="text-black font-playwrite text-2xl font-semibold">Result</span>
+                    Manaagment System!</a> </h1>
             <ul class="flex  justify-between items-center gap-5 pr-3">
                 <li class="font-semibold text-white font-Arimo text-xl hover:underline">Add Students</li>
                 <li class="font-semibold text-white font-Arimo text-xl hover:underline">Logout</li>
