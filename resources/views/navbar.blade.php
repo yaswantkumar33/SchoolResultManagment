@@ -1,7 +1,5 @@
 <header class="w-full">
     <nav class="flex justify-between items-center max-container padding-x py-8 ">
-        {{-- <div data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500"> --}}
-
         <div data-aos="fade-down" data-aos-duration="1000">
             <a href="/">
 
@@ -10,8 +8,6 @@
 
             </a>
         </div>
-        {{-- </div> --}}
-
         <div data-aos="fade-down" data-aos-duration="1000">
             <ul
                 class=" text-xl flex justify-between gap-8 items-center font-Arimo cursor-pointer z-10 max-sm:hidden font-semibold ">
@@ -38,7 +34,6 @@
                 @endif
             </ul>
         </div>
-        {{-- <p>THE CURRENT PAGE URL IS {{ explode('/', url()->current())[3] }}</p> --}}
     </nav>
 
 </header>
