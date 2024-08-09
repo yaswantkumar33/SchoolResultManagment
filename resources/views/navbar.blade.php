@@ -15,7 +15,7 @@
                     <li><a class="font-semibold"
                             href="/{{ auth()->user()->role == 'student' ? 'dashboard' : 'teacher' }}">DashBoard</a></li>
                 @endif
-                <li class="text-lg font-semibold">{{ auth()->user() ? auth()->user()->role + 'user' : '' }}</li>
+                <li class="text-lg font-semibold">{{ auth()->user() ? auth()->user()->role : '' }}</li>
                 @if (strpos(url()->current(), 'register') || strpos(url()->current(), 'login'))
                 @else
                     @if (auth()->user())

@@ -96,8 +96,6 @@ class HomeController extends Controller
 
         return redirect()->route('login')->with('error', 'Invalid credentials. Please try again.');
     }
-
-
     public function logout()
     {
         Session::flush();
@@ -125,5 +123,8 @@ class HomeController extends Controller
             'semester' => 1, // Assuming it's the first semester
         ]);
 
+    }
+    public function edituser($id){
+         dd($id);
     }
 }

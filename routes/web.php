@@ -51,5 +51,6 @@ Route::post('/store', [HomeController::class, 'storeStudent'])->name('student.st
 Route::post('/registeruser', [HomeController::class, 'registeruser']);
 Route::post('/userlogin', [HomeController::class, 'userlogin']);
 Route::get('/logout', [HomeController::class, 'logout']);
+Route::get('/edituser/{id}',[HomeController::class,'edituser']);
 Route::get('/teacher', [HomeController::class, 'teacher'])->name("teacher.dashboard");
 // Route::get('/rcreate/{id}', [HomeController::class, 'resultcreate']);

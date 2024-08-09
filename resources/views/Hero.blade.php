@@ -1,7 +1,6 @@
 <?php
 $authh = true;
 ?>
-
 <div class="  w-full flex ">
     <div class="w-1/2 flex  items-Start px-5 pt-40  flex-col ">
         <h1 class="text-7xl font-semibold " data-aos="fade-right" data-aos-duration="1000" data-aos-delay="0">
@@ -26,7 +25,6 @@ $authh = true;
             @endif
 
         </div>
-
     </div>
     <div class="w-1/2  flex  justify-center  ">
         <div class=" object-contain pt-12" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="1500">
