@@ -222,3 +222,24 @@ svg {
         transform: translateX(-100%);
     }
 }
+.usereditform {
+    position: absolute !important;
+    top: 40% !important;
+    left: 40% !important;
+    z-index: 3; /* Ensure the form is above the blur-div */
+}
+
+.blur-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: blur(6px) !important;
+    height: 100vh !important;
+    width: 100vw !important;
+    background: #3232323b !important;
+    z-index: 1; /* Ensure the blur-div is below the form */
+}
+
+.editform {
+    z-index: 2; /* This is now between the blur-div and the form */
+}

@@ -26,12 +26,11 @@
                 <p class="text-2xl font-semibold font-Arimo">Student DOB : <span
                         class="text-purple-600 font-semibold">{{ auth()->user()->dob }}</span></p>
                 <div>
-                    <button
-                        class="text-md border border-purple-500 p-2 rounded-lg text-white bg-purple-600 font-semibold hover:bg-purple-700"><a
-                            href="/edituser/{{ auth()->user()->id }}">Edit
-                            Your
-                            Details</a></button>
-
+                    <button id="EditUserBtn"
+                        class="text-md border userEditId border-purple-500 p-2 rounded-lg text-white bg-purple-600 font-semibold hover:bg-purple-700">Edit
+                        Your
+                        Details</button>
+                    <input type="text" id="userEditId" value="{{ auth()->user()->id }}" hidden>
                 </div>
             </div>
 
@@ -63,6 +62,24 @@
             </div>
 
         </div>
-
+        <div class="editform">
+            <form class=" flex flex-col bg-purple-500 usereditform p-3 rounded-lg shadow-lg">
+                <label for=""> Your Name </label>
+                <input type="text" class="text-white bg-purple-500" value="{{ auth()->user()->username }}"><label
+                    for=""> Your Email </label>
+                <input type="text" class="text-white bg-purple-500" value="{{ auth()->user()->useremail }}"><label
+                    for=""> Your Contact Nummber </label>
+                <input type="text" class="text-white bg-purple-500" value="{{ auth()->user()->phonenumber }}"><label
+                    for=""> Your DOB </label>
+                <input type="text" class="text-white bg-purple-500" value="{{ auth()->user()->dob }}">
+                <input type="submit" value="Save Corrections"
+                    class="bg-white text-purple-500 rounded-lg p-2 font-semibold">
+            </form>
+        </div>
+        <div class="blur-div"></div>
     </section>
+@endsection
+@section('cusjs')
+    <script src="{{ asset('js/homecontroller.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 @endsection

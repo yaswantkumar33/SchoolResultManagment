@@ -32,4 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
             });
     }
+    document.getElementById("EditUserBtn").addEventListener("click", () => {
+        var EditUserId = parseInt(document.getElementById("userEditId").value);
+        // console.log("Edit User cliecked ! ", EditUserId);
+    });
 });

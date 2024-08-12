@@ -19,7 +19,8 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        $records = Result::where('user_id', auth()->user()->id)->get();
+        if(auth()->user()){
+            $records = Result::where('user_id', auth()->user()->id)->get();
         // dd($records[0]->results);
         $decodedcode = json_decode($records[0]->results, true);
         // dd($decodedcode);
@@ -36,6 +37,9 @@ class HomeController extends Controller
         //     return redirect()->route("login");
         // }
         return view('dashboard', compact('decodedcode'));
+        }else{
+            return redirect('/login');
+        }
     }
 
     public function login()
@@ -124,7 +128,7 @@ class HomeController extends Controller
         ]);
 
     }
-    public function edituser($id){
-         dd($id);
-    }
+    // public function edituser($id){
+    //      dd($id);
+    // }
 }
