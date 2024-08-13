@@ -128,7 +128,12 @@ class HomeController extends Controller
         ]);
 
     }
-    // public function edituser($id){
-    //      dd($id);
-    // }
+    public function edituser(Request $request){
+         $name = $request->username;
+         $email = $request->email;
+         $phonenumber = $request->phonenumber;
+         $Dob = $request->Dob;
+         $edituser=User::where('id',auth()->user()->id)->update(['username'=>$name,'useremail'=>$email,'phonenumber'=>$phonenumber,"dob"=>$Dob]);
+         return response()->json(['sucess'=>true,'data'=>$edituser]);
+    }
 }

@@ -8,6 +8,7 @@
     <title>@yield('title')</title>
     @vite('resources/css/app.css')
     @include('layouts.Header')
+
     <!-- Add your CSS files here -->
 </head>
 

@@ -62,24 +62,25 @@
             </div>
 
         </div>
-        <div class="editform">
+        <div class="editform class1 class2 hidden ">
             <form class=" flex flex-col bg-purple-500 usereditform p-3 rounded-lg shadow-lg">
+                @csrf
                 <label for=""> Your Name </label>
-                <input type="text" class="text-white bg-purple-500" value="{{ auth()->user()->username }}"><label
-                    for=""> Your Email </label>
-                <input type="text" class="text-white bg-purple-500" value="{{ auth()->user()->useremail }}"><label
-                    for=""> Your Contact Nummber </label>
-                <input type="text" class="text-white bg-purple-500" value="{{ auth()->user()->phonenumber }}"><label
-                    for=""> Your DOB </label>
-                <input type="text" class="text-white bg-purple-500" value="{{ auth()->user()->dob }}">
+                <input type="text" id="EditUserName" class="text-white bg-purple-500"
+                    value="{{ auth()->user()->username }}"><label for=""> Your Email </label>
+                <input type="text" id="EditUserEmail"class="text-white bg-purple-500"
+                    value="{{ auth()->user()->useremail }}"><label for=""> Your Contact Nummber </label>
+                <input type="number" id="EditUserNumber" class="text-white bg-purple-500"
+                    value="{{ auth()->user()->phonenumber }}"><label for=""> Your DOB </label>
+                <input type="Date" id="EditUserDob" class="text-white bg-purple-500" value="{{ auth()->user()->dob }}">
                 <input type="submit" value="Save Corrections"
-                    class="bg-white text-purple-500 rounded-lg p-2 font-semibold">
+                    class="bg-white mt-3 text-purple-500 rounded-lg p-2 font-semibold">
             </form>
         </div>
-        <div class="blur-div"></div>
+        <div class="blur-div hidden"></div>
     </section>
 @endsection
 @section('cusjs')
-    <script src="{{ asset('js/homecontroller.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="{{ asset('js/homecontroller.js') }}"></script>
 @endsection
