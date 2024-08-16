@@ -1,4 +1,4 @@
-<footer>
+<footer class="max-md:hidden">
     <svg viewBox="0 0 120 28">
         <defs>
             <filter id="goo">

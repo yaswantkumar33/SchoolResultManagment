@@ -35,7 +35,7 @@ caption {
     margin-bottom: 0.5rem;
 }
 
-table {
+/* table {
     border-collapse: collapse;
     border-radius: 1rem;
     overflow: hidden;
@@ -133,7 +133,7 @@ td {
             font-weight: bold;
         }
     }
-}
+} */
 footer {
     width: 100vw;
     position: fixed;
@@ -224,7 +224,7 @@ svg {
 }
 .usereditform {
     position: absolute !important;
-    top: 40% !important;
+    top: 20% !important;
     left: 40% !important;
     z-index: 3; /* Ensure the form is above the blur-div */
 }
@@ -233,10 +233,10 @@ svg {
     position: absolute;
     top: 0;
     left: 0;
-    filter: blur(6px) !important;
+    /* filter: blur(6px) !important; */
     height: 100vh !important;
     width: 100vw !important;
-    background: #3232323b !important;
+    background: #2020209c !important;
     z-index: 1; /* Ensure the blur-div is below the form */
 }
 

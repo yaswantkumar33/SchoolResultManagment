@@ -68,5 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 console.log("Save Correction clicked ! ", editdata);
             });
+        document.getElementById("editcancel").addEventListener("click", () => {
+            document
+                .getElementsByClassName("editform")[0]
+                .classList.add("hidden");
+            document
+                .getElementsByClassName("blur-div")[0]
+                .classList.add("hidden");
+        });
     }
 });
