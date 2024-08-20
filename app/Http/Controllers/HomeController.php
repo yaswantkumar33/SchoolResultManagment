@@ -46,13 +46,11 @@ class HomeController extends Controller
     {
         return view('login');
     }
-
     public function register()
     {
         $register = true;
         return view('register', ['register' => $register]);
     }
-
     public function storeStudent(Request $request)
     {
         // dd($request->except('_token'));
@@ -60,7 +58,6 @@ class HomeController extends Controller
         // user::
 
     }
-
     public function registeruser(Request $request)
     {
         // Uncomment for debugging
