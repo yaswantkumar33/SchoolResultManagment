@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function dashboard()
     {
         if(auth()->user()){
-            $records = Result::where('user_id', auth()->user()->id)->get();
+            $records = Result::where('user_id', auth()->user()->id)->where('semester','1')->get();
         // dd($records[0]->results);
         $decodedcode = json_decode($records[0]->results, true);
         // dd($decodedcode);
@@ -105,7 +105,16 @@ class HomeController extends Controller
     }
     public function teacher()
     {
-        return view('teacherDashboard');
+
+        $students = user::where('role','student')->get();
+        // dd($students);
+
+        return view('teacherDashboard',['students'=>$students]);
+    }public function teacherstdresults($id){
+
+        $studentresult =Result::where('user_id',$id)->get();
+        dd($studentresult);
+        // dd("teacher students results route hit !!",$id);
     }
     public function resultcreate($id)
     {
@@ -132,5 +141,18 @@ class HomeController extends Controller
          $Dob = $request->Dob;
          $edituser=User::where('id',auth()->user()->id)->update(['username'=>$name,'useremail'=>$email,'phonenumber'=>$phonenumber,"dob"=>$Dob]);
          return response()->json(['sucess'=>true,'data'=>$edituser]);
+    }
+    public function Fetchresults(Request $request){
+        $results = Result::where('user_id',$request->stud_id)->where('semester',$request->semister)->get();
+        $decodedcode = json_decode($results[0]->results, true);
+        $totalScore = array_sum($decodedcode);
+        $percentage = number_format(($totalScore / 500) * 100, 2) . '%';
+        $rows = view('resultsrow', compact('decodedcode'))->render();
+        return response()->json([
+            'rows' => $rows,
+            'totalScore' => $totalScore,
+            'percentage' => $percentage,
+        ]);
+
     }
 }

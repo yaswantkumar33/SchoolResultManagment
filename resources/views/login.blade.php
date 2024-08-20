@@ -10,7 +10,7 @@
                     class=" font-playwrite text-xl font-semibold text-purple-600">Login</span> </h4>
             <p class="text-xl text-red-500 text-center">
                 @if (session('error'))
-                    <div class="alert alert-danger">
+                    <div class="alert  text-red-500 text-center my-2">
                         {{ session('error') }}
                     </div>
                 @endif

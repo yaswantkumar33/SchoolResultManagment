@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
             });
     }
-
+    // Student dashboard js
     if (window.location.href.indexOf("dashboard") > 0) {
         document.getElementById("EditUserBtn").addEventListener("click", () => {
             var EditUserId = parseInt(
@@ -76,5 +76,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 .getElementsByClassName("blur-div")[0]
                 .classList.add("hidden");
         });
+        document
+            .getElementById("Semisterstud")
+            .addEventListener("change", (e) => {
+                let stud_id = parseInt(e.target.getAttribute("cusvalue"));
+                let semister = parseInt(e.target.value);
+                let semval = {
+                    stud_id,
+                    semister,
+                };
+                // console.log("Semister selection clicked !!", stud_id, semister);
+                axios
+                    .post("http://127.0.0.1:8000/Fetchresults", semval)
+                    .then((response) => {
+                        document.getElementById("resultsbody").innerHTML =
+                            response.data.rows;
+                        document.getElementById("percentage").innerHTML =
+                            response.data.percentage;
+                        document.getElementById("totalscore").innerHTML =
+                            response.data.totalScore;
+                        // console.log(response.data.rows);
+                    });
+            });
     }
+    // Teacher dashboard js
 });

@@ -7,8 +7,7 @@ $authh = true;
             School <span class="font-playwrite text-6xl text-purple-500">Result</span>
             <br> <span class="font-semibold text-7xl">Managment</span> System
         </h1>
-        <p class=" font-Arimo pt-4 max-w-4xl text-2xl" data-aos="fade-right" data-aos-duration="1000"
-            data-aos-delay="500">
+        <p class=" font-Arimo pt-4 max-w-4xl text-xl" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
             "Welcome to the School Result Management System. Students can securely log in to view their academic
             results, while teachers have the tools to manage student records, including adding, editing, and removing
             student details and results. Our system ensures efficient and accurate management of school performance
