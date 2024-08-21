@@ -17,4 +17,11 @@ class Result extends Model
     // protected $casts = [
     //     'results' => 'array', // Automatically cast the results field to an array
     // ];
+    // app/Models/Result.php
+public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
+
 }

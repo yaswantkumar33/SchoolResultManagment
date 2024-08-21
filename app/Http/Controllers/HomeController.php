@@ -110,12 +110,13 @@ class HomeController extends Controller
         // dd($students);
 
         return view('teacherDashboard',['students'=>$students]);
-    }public function teacherstdresults($id){
-
-        $studentresult =Result::where('user_id',$id)->get();
-        dd($studentresult);
-        // dd("teacher students results route hit !!",$id);
     }
+    // public function teacherstdresults($id){
+
+    //     $studentresult =Result::where('user_id',$id)->get();
+    //     dd($studentresult);
+    //     // dd("teacher students results route hit !!",$id);
+    // }
     public function resultcreate($id)
     {
         // Create an associative array representing the JSON data
@@ -153,6 +154,17 @@ class HomeController extends Controller
             'totalScore' => $totalScore,
             'percentage' => $percentage,
         ]);
+
+    }
+    public function deletestud($id){
+        // dd('delete student is called from the teachers dashboard',$id);
+        User::where('id',$id)->delete();
+        return redirect('/teacher');
+    }
+    public function userwithresults($id){
+        // Fetch user with results
+        $usersWithResults = User::with('results')->find($id);
+        dd($usersWithResults->results);
 
     }
 }

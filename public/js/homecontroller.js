@@ -100,4 +100,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
     // Teacher dashboard js
+    // if (window.location.href.indexOf("teacher") > 0) {
+    //     document
+    //         .getElementById("deletestudbtn")
+    //         .addEventListener("click", () => {
+    //             console.log("delete user clicked");
+    //         });
+    // }
 });

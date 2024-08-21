@@ -53,8 +53,11 @@ Route::post('/userlogin', [HomeController::class, 'userlogin']);
 Route::get('/logout', [HomeController::class, 'logout']);
 Route::post('/UpdateUser',[HomeController::class,'edituser']);
 Route::get('/teacher', [HomeController::class, 'teacher'])->name("teacher.dashboard");
-Route::get('/teacher', [HomeController::class, 'teacher'])->name("teacher.dashboard");
-Route::get('/studresults/{id}', [HomeController::class, 'teacherstdresults'])->name("teacher.stdresults");
-Route::get('/teacher', [HomeController::class, 'teacher'])->name("teacher.dashboard");
+// Route::get('/teacher', [HomeController::class, 'teacher'])->name("teacher.dashboard");
 // Route::get('/rcreate/{id}', [HomeController::class, 'resultcreate']);
 Route::post('/Fetchresults',[HomeController::class,'FetchResults'])->name('SemResults');
+// Teacher routes
+Route::get('/teacher', [HomeController::class, 'teacher'])->name("teacher.dashboard");
+Route::get('/studresults/{id}', [HomeController::class, 'teacherstdresults'])->name("teacher.stdresults");
+Route::get('/deletestud/{id}', [HomeController::class, 'deletestud']);
+Route::get('/userwithresults/{id}', [HomeController::class,'userwithresults']);
