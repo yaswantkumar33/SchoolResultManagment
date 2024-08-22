@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
                 // console.log("Semister selection clicked !!", stud_id, semister);
                 axios
-                    .post("http://127.0.0.1:8000/Fetchresults", semval)
+                    .post("http://127.0.0.1:8000/Fetchsults", semval)
                     .then((response) => {
                         document.getElementById("resultsbody").innerHTML =
                             response.data.rows;
@@ -100,11 +100,16 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
     // Teacher dashboard js
-    // if (window.location.href.indexOf("teacher") > 0) {
-    //     document
-    //         .getElementById("deletestudbtn")
-    //         .addEventListener("click", () => {
-    //             console.log("delete user clicked");
-    //         });
-    // }
+    if (window.location.href.indexOf("teacher") > 0) {
+        var restbtn = document.querySelectorAll(".ResultsStudentBtn");
+        restbtn.forEach((button) => {
+            button.addEventListener("click", function () {
+                const studentId = this.getAttribute("data-id");
+                console.log(
+                    studentId,
+                    "This student is result btn is clicked !"
+                );
+            });
+        });
+    }
 });

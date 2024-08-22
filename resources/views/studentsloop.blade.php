@@ -32,9 +32,10 @@
         <div class="flex flex-col justify-between p-4 leading-normal">
             <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">{{ $stud->username }}</h5>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 flex gap-55">
-                <a href="/userwithresults/{{ $stud->id }}"
-                    class=" px-2 py-1 bg-purple-500 font-playwrite font-semibold text-sm text-white mx-1">
-                    Results</a>
+                <button
+                    class="ResultsStudentBtn px-2 py-1 bg-purple-500 font-playwrite font-semibold text-sm text-white mx-1"
+                    data-id="{{ $stud->id }}">
+                    Results</button>
                 {{-- <a href="/deletestud/{{ $stud->id }}"
                     class=" px-2 py-1 bg-red-500 font-Arimo font-semibold text-sm text-white mx-1">Delete</a> --}}
                 <button data-modal-target="small-modal{{ $stud->id }}"
@@ -87,28 +88,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </p>
             <button class="font-semibold text-sm text-center underline hover:no-underline hover:text-purple-500">Edit
                 Student Deatils
