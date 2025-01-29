@@ -21,7 +21,7 @@ class HomeController extends Controller
     {
         if(auth()->user()){
             $records = Result::where('user_id', auth()->user()->id)->where('semester','1')->get();
-        // dd($records[0]->results);
+        // dd($records[0]);
         $decodedcode = json_decode($records[0]->results, true);
         // dd($decodedcode);
         // dd($record);

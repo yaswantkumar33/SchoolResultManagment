@@ -85,9 +85,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     stud_id,
                     semister,
                 };
-                // console.log("Semister selection clicked !!", stud_id, semister);
                 axios
-                    .post("http://127.0.0.1:8000/Fetchsults", semval)
+                    .post("http://127.0.0.1:8000/Fetchresults", semval)
                     .then((response) => {
                         document.getElementById("resultsbody").innerHTML =
                             response.data.rows;
